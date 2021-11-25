@@ -16,4 +16,4 @@ services:
     volumes:
       - /app/build
       - .:/app
-    command: ['go test']
+    command: ['go','test','./...']
