@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+  web-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - '80:8080'
+    volumes:
+      - /app/build
+      - .:/app
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/build
+      - .:/app
+    command: ['go','test','./...']

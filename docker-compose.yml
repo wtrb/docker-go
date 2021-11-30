@@ -3,17 +3,9 @@ services:
   web-app:
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
     ports:
-      - '8080:8080'
+      - '80:8080'
     volumes:
       - /app/build
       - .:/app
-  tests:
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
-    volumes:
-      - /app/build
-      - .:/app
-    command: ['go','test','./...']
